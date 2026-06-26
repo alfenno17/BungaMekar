@@ -1,0 +1,127 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #0b1026;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    perspective: 1000px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.flower-container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    cursor: pointer;
+}
+
+.stem {
+    width: 8px;
+    height: 250px;
+    background: linear-gradient(to top, #1b4d3e, #2e8b57);
+    border-radius: 4px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.leaf {
+    width: 60px;
+    height: 30px;
+    background:#2e8b57;
+    border-radius: 0px 30px 0px 30px;
+    position: absolute;
+    left: -25px;
+    top: 100px;
+    transform: rotate(-30deg);
+}
+
+.leaf.right {
+    left: 5px;
+    top: 140px;
+    border-radius: 30px 0px 30px 0px;
+    transform: rotate(30deg);
+}
+
+.flower-head {
+    position: absolute;
+    bottom: 270px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    z-index: 5;
+}
+
+.petal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 100px;
+    background: linear-gradient(to top , #ff4d6d, #ff758f);
+    border-radius: 50% 50% 10% 10%;
+    transform-origin: bottom center;
+    opacity: 0.9;
+    box-shadow: 0 0 15px rgba(255, 77, 109, 0.5);
+    transition: transform 2s ease-in-out, background 1.5s;
+}
+
+.center-core {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    background: #ffb703;
+    border-radius: 50%;
+    z-index: 10;
+    box-shadow: 0 0 20px #ffb703;
+}
+
+.message {
+    position: absolute;
+    top: 40px;
+    color: #fff;
+    font-size: 1.5rem;
+    text-align: center;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 1.5s ease;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    font-weight: bold;
+    pointer-events: none;
+}
+
+.message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px white;
+    animation: fly 3s linear infinite;
+}
+
+@keyframes fly {
+    0% { transform: translateY(0) translateX(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-200px) translateX(var(--x)) scale(0); opacity: 0; }
+}
